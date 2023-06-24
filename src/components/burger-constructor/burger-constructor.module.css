@@ -1,0 +1,56 @@
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    max-height: 912px;
+    overflow: auto;
+}
+.ingredientsBlock {
+    max-height: 590px;
+    overflow: auto;
+}
+.styledScrollbars {
+    /* плашка-бегунок и фон */
+    scrollbar-color:  #8585AD;
+  }
+  .styledScrollbars::-webkit-scrollbar {
+    width: 10px; /* в основном для вертикальных полос прокрутки */
+    height: 10px; /* в основном для горизонтальных полос прокрутки */
+  }
+  .styledScrollbars::-webkit-scrollbar-thumb { /* плашка-бегунок */
+    background:  #8585AD;;
+  }
+  .styledScrollbars::-webkit-scrollbar-track { /* фон */
+    background: #8585AD;;
+  }
+.totalBlock {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 44px;
+}
+
+.total {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 9px;
+}
+
+.totalHeading {
+    font-family: 'Iceland';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 36px;
+    text-align: right;
+    color: #F2F2F3;
+}
+
+.button {
+    width: 215px;
+    height: 64px;
+}
