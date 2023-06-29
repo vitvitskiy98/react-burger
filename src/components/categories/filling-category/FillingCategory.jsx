@@ -1,26 +1,35 @@
 import React from "react";
 import { data } from "../../data/data";
-import fillingCategoryStyle from './filling-category.module.css';
+import fillingCategoryStyle from "./filling-category.module.css";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
 
-
+const dataFillingCategory = [
+  data[2],
+  data[12],
+  data[4],
+  data[1],
+  data[8],
+  data[7],
+  data[10],
+  data[11],
+  data[13],
+];
 export const FillingCategory = () => {
-    return (
-        <div className="burgerCategory">
-            <Heading heading="Начинки" />
-            <div className={`${fillingCategoryStyle.block} mt-6 mb-10`}>
-                <BurgerIngredient image={`${data[2].image}`} quantity={424} description={data[2].name} key ={data[2]._id}/>
-                <BurgerIngredient image={`${data[12].image}`} quantity={988} description={data[12].name} key ={data[12].id} />
-                <BurgerIngredient image={`${data[4].image}`} quantity={1337} description={data[4].name} key ={data[4].id}/>
-                <BurgerIngredient image={`${data[1].image}`} quantity={3000} description={data[1].name} key ={data[1]._id}/>
-                <BurgerIngredient image={`${data[8].image}`} quantity={300} description={data[8].name} key ={data[8]._id}/>
-                <BurgerIngredient image={`${data[7].image}`} quantity={874} description={data[7].name} key ={data[7].id} />
-                <BurgerIngredient image={`${data[10].image}`} quantity={752} description={data[10].name} key ={data[10].id}/>
-                <BurgerIngredient image={`${data[11].image}`} quantity={4400} description={data[11].name} key ={data[11]._id}/>
-                <BurgerIngredient image={`${data[13].image}`} quantity={4142} description={data[13].name} key ={data[13]._id}/>
-            </div>
-        </div>
-
-    );
+  return (
+    <div className="burgerCategory">
+      <Heading heading="Начинки" />
+      <div className={`${fillingCategoryStyle.block} mt-6 mb-10`}>
+        {dataFillingCategory.map((elem) => (
+          <BurgerIngredient
+            key={elem._id}
+            image={elem.image}
+            quantity={elem.price}
+            description={elem.name}
+            alt={elem.name}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };

@@ -21,7 +21,7 @@ export const BurgerConstructorIngredient = (props) => {
 }
 
  BurgerConstructorIngredient.propTypes = PropTypes.shape({
-    type: PropTypes.string.isRequired,
+    type: PropTypes.string,
     isLocked: PropTypes.bool,
     text: PropTypes.string,
     price: PropTypes.oneOfType([
