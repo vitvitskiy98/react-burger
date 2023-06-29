@@ -3,7 +3,6 @@
     flex-direction: column;
     width: 600px; 
     max-height: 912px;
-    margin-left: 40px;
 }
 .chosenIngredients {
   overflow-x: hidden;
@@ -11,10 +10,6 @@
   overflow-x: hidden;
   overflow-y: scroll;
   max-height: 386px;
-}
-.ingredientsBlock {
-    /* max-height: 590px; */
-
 }
 
 .chosenIngredients::-webkit-scrollbar {

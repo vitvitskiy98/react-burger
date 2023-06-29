@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import headerStyle from "./app-header.module.css";
 import { BurgerIcon, ListIcon, Logo, ProfileIcon } from "@ya.praktikum/react-developer-burger-ui-components";
@@ -5,24 +6,24 @@ export const AppHeader = () => {
     return (
         <header className={headerStyle.header}>
             <nav className={headerStyle.headerContent}>
-                <div className={headerStyle.navigationItems}>
-                    <div className={headerStyle.navigationItem}>
+                <ul className={headerStyle.navigationItems}>
+                    <li className={headerStyle.navigationItem}>
                         <BurgerIcon type="primary" />
-                        <p className={headerStyle.pStyle}>Конструктор</p>
-                    </div>
+                        <a href="#" className={headerStyle.aStyle}>Конструктор</a>
+                    </li>
 
-                    <div className={headerStyle.navigationItem}>
+                    <li className={headerStyle.navigationItem}>
                         <ListIcon type="secondary" />
-                        <p className={headerStyle.pStyleInactive}>Лента заказов</p>
-                    </div>
-                </div>
+                        <a href ="#" className={headerStyle.aStyleInactive}>Лента заказов</a>
+                    </li>
+                </ul>
                 <div>
                     <Logo />
                 </div>
 
                 <div className={headerStyle.personalAccount}>
                     <ProfileIcon type="secondary"/>
-                    <p className={headerStyle.personalAccountText}>Личный кабинет</p>
+                    <a href="#" className={headerStyle.personalAccountText}>Личный кабинет</a>
                 </div>
             </nav>
         </header>

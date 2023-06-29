@@ -31,8 +31,28 @@
 
 .main {
   display: flex;
+  flex-direction: row;
+  row-gap: 40px;
   margin: 0 340px;
   justify-content: space-between;
+}
+
+
+@media (min-width: 1921px) and (max-width:1980px){
+  .main {
+      margin: 0 17%;
+  }
+}
+
+@media (min-width: 1981px) and (max-width:2081px) {
+  .main {
+      margin: 0 18%;
+  }
+}
+@media (min-width: 2082px) {
+  .main {
+      margin: 0 20%;
+  }
 }
 
 @keyframes App-logo-spin {
