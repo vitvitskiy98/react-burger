@@ -9,4 +9,5 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: flex-end;
+    padding-right: 15px;
 }

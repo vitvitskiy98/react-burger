@@ -1,10 +1,30 @@
 .burgerIngredients {
     width: 600px;
     max-height: 912px;
-    overflow: auto;
     /* interface/bg */
-  
     background: #131316;
+  }
+   .categories {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 912px;
+   }
+ .categories::-webkit-scrollbar {
+    width: 8px;
+    height: 664px;
+    background: rgba(47, 47, 55, 1);
+  }
+  
+ .categories::-webkit-scrollbar-track {
+    background: rgba(47, 47, 55, 1);
+  }
+  
+ .categories::-webkit-scrollbar-thumb {
+    width: 8px;
+    height: 292px;
+    background: rgba(133, 133, 173, 1);
+    border: 3px solid rgba(133, 133, 173, 1)
+    
   }
   
   .burgerIngredientsHeading {

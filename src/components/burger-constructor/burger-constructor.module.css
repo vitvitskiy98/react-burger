@@ -1,28 +1,40 @@
 .block {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 600px; 
     max-height: 912px;
-    overflow: auto;
+    margin-left: 40px;
+}
+.chosenIngredients {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 386px;
 }
 .ingredientsBlock {
-    max-height: 590px;
-    overflow: auto;
+    /* max-height: 590px; */
+
 }
-.styledScrollbars {
-    /* плашка-бегунок и фон */
-    scrollbar-color:  #8585AD;
-  }
-  .styledScrollbars::-webkit-scrollbar {
-    width: 10px; /* в основном для вертикальных полос прокрутки */
-    height: 10px; /* в основном для горизонтальных полос прокрутки */
-  }
-  .styledScrollbars::-webkit-scrollbar-thumb { /* плашка-бегунок */
-    background:  #8585AD;;
-  }
-  .styledScrollbars::-webkit-scrollbar-track { /* фон */
-    background: #8585AD;;
-  }
+
+.chosenIngredients::-webkit-scrollbar {
+  width: 8px;
+  height: 464px;
+  background: rgba(47, 47, 55, 1);
+}
+
+.chosenIngredients::-webkit-scrollbar-track {
+  background: rgba(47, 47, 55, 1);
+}
+
+.chosenIngredients::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 292px;
+  background: rgba(133, 133, 173, 1);
+  border: 3px solid rgba(133, 133, 173, 1)
+  
+}
+
 .totalBlock {
     display: flex;
     justify-content: flex-end;
