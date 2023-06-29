@@ -25,11 +25,10 @@ export const BurgerIngredient = ({
 };
 
 BurgerIngredient.propTypes = PropTypes.shape({
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  text: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  description: PropTypes.string,
   children: PropTypes.any,
-  alt: PropTypes.string
+  alt: PropTypes.string,
+  key:PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 });
