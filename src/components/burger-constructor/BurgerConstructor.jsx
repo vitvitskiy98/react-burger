@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 // import { data } from "../data/data";
 import burgerConstructorStyle from "./burger-constructor.module.css";
 import { BurgerConstructorIngredient } from "../burger-constructor-ingredient/BurgerConstructorIngredient";
+import Modal from "../modals/Modal";
 import {
   DragIcon,
   CurrencyIcon,
   Button,
 } from "@ya.praktikum/react-developer-burger-ui-components";
+import OrderDetails from "../modals/OrderDetails";
 export const BurgerConstructor = () => {
-
+  const [openModal, setOpenModal] = useState(false);
   const [state, setState] = useState({
     isLoading: false,
     hasError: false,
@@ -41,6 +43,7 @@ export const BurgerConstructor = () => {
 
   useEffect(() => {
     getData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // const selectedData = [
@@ -80,9 +83,8 @@ export const BurgerConstructor = () => {
                   text={elem.name}
                   price={elem.price}
                   thumbnail={elem.image}
-                  children ={<DragIcon type="primary"/>}
                 >
-                  {/* <DragIcon type="primary"/> */}
+                  <DragIcon type="primary"/>
                 </BurgerConstructorIngredient>
               )
             )}
@@ -98,9 +100,18 @@ export const BurgerConstructor = () => {
           type="primary"
           size="large"
           extraClass={`${burgerConstructorStyle.button}`}
+          onClick={() =>setOpenModal(true)}
         >
           Оформить заказ
         </Button>
+        {/* <Modal>
+          
+        <OrderDetails handleClose={() => setShowModal(false)}>
+          034536
+        </OrderDetails>
+      </Modal> */}
+
+        {openModal &&<OrderDetails closeModal={setOpenModal}/> }
       </div>
     </div>
   );

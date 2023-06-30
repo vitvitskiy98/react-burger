@@ -6,7 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+#react-modals {
+  position: relative;
+  z-index: index 999;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
