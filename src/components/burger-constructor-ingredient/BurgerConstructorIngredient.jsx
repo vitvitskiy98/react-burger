@@ -28,5 +28,6 @@ export const BurgerConstructorIngredient = (props) => {
         PropTypes.number,
         PropTypes.string
     ]).isRequired,
-    thumbnail: PropTypes.string.isRequired
+    thumbnail: PropTypes.string.isRequired,
+    children:PropTypes.any
 });

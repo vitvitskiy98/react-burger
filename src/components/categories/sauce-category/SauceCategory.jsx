@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import sauceCategoryStyle from "./sauce-category.module.css";
 import { Heading } from "../../heading/Heading";
