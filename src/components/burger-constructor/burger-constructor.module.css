@@ -1,0 +1,63 @@
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 600px; 
+    max-height: 912px;
+}
+.chosenIngredients {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 386px;
+}
+
+.chosenIngredients::-webkit-scrollbar {
+  width: 8px;
+  height: 464px;
+  background: rgba(47, 47, 55, 1);
+}
+
+.chosenIngredients::-webkit-scrollbar-track {
+  background: rgba(47, 47, 55, 1);
+}
+
+.chosenIngredients::-webkit-scrollbar-thumb {
+  width: 8px;
+  height: 292px;
+  background: rgba(133, 133, 173, 1);
+  border: 3px solid rgba(133, 133, 173, 1)
+  
+}
+
+.totalBlock {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 44px;
+}
+
+.total {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 9px;
+}
+
+.totalHeading {
+    font-family: 'Iceland';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 36px;
+    text-align: right;
+    color: #F2F2F3;
+}
+
+.button {
+    width: 215px;
+    height: 64px;
+}

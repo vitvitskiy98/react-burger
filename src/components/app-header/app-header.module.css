@@ -1,0 +1,124 @@
+
+.header {
+    width: 100%;
+    /* display: flex;
+    align-items: center; */
+    background-color: #1C1C21;
+    height: 88px;
+    box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0 320px;
+}
+
+.navigationItems {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+
+}
+
+.navigationItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 8px;
+    background: #1C1C21;
+    border-radius: 40px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    list-style-type: none;
+}
+
+.aStyle {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #F2F2F3;
+
+
+}
+
+.aStyleInactive {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #8585AD;
+}
+
+
+.personalAccount {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 8px;
+    background: #1C1C21;
+    border-radius: 40px;
+    /* margin-left: 289px; */
+}
+
+.personalAccountText {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    color: #8585AD;
+}
+
+
+@media (min-width: 1921px) and (max-width:1980px) {
+    .headerContent {
+        margin: 0 16%;
+    }
+
+    .navigationItems {
+        margin-right: 112px;
+    }
+
+    .personalAccount {
+        margin-left: 289px;
+    }
+}
+
+@media (min-width: 1981px) and (max-width:2081px) {
+    .headerContent {
+        margin: 0 17%;
+    }
+}
+@media (min-width: 2082px) {
+    .headerContent {
+        margin: 0 19%;
+    }
+  }
+@media (min-width: 1280px) {
+
+    .navigationItems {
+        margin-right: 112px;
+    }
+
+    .personalAccount {
+        margin-left: 189px;
+    }
+}

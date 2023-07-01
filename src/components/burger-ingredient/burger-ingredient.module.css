@@ -1,0 +1,38 @@
+.burgerIngredientWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 272px;
+    height: 208px;
+}
+
+.counter {
+
+}
+
+.currencyBlock {
+    display: flex;
+    column-gap: 9px;
+}
+
+.quantity {
+    font-family: Iceland;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+
+.description {
+    font-family: JetBrains Mono;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}

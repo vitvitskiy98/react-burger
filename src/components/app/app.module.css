@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -28,6 +29,32 @@
   color: #61dafb;
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+  row-gap: 40px;
+  margin: 0 340px;
+  justify-content: space-between;
+}
+
+
+@media (min-width: 1921px) and (max-width:1980px){
+  .main {
+      margin: 0 17%;
+  }
+}
+
+@media (min-width: 1981px) and (max-width:2081px) {
+  .main {
+      margin: 0 18%;
+  }
+}
+@media (min-width: 2082px) {
+  .main {
+      margin: 0 20%;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +63,4 @@
     transform: rotate(360deg);
   }
 }
+
