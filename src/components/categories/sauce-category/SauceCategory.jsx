@@ -31,7 +31,7 @@ export const SauceCategory = () => {
   useEffect(() => {
     getData();
   }, []);
-   
+
    const {isLoading,hasError,data} = state;
   return (
     <div className="burgerCategory">
@@ -49,6 +49,7 @@ export const SauceCategory = () => {
               quantity={elem.price}
               description={elem.name}
               alt={elem.name}
+              ingredient={elem}
             />
           ))}
       </div>

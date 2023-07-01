@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-// import { data } from "../data/data";
 import burgerConstructorStyle from "./burger-constructor.module.css";
+import orderDetailsStyle from "./orderDetails.module.css"
 import { BurgerConstructorIngredient } from "../burger-constructor-ingredient/BurgerConstructorIngredient";
 import Modal from "../modals/Modal";
 import {
   DragIcon,
   CurrencyIcon,
-  Button,
+  Button, CheckMarkIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import OrderDetails from "../modals/OrderDetails";
+
 export const BurgerConstructor = () => {
   const [openModal, setOpenModal] = useState(false);
   const [state, setState] = useState({
@@ -55,7 +55,7 @@ export const BurgerConstructor = () => {
   //   state.data[10],
   //   state.data[0],
   // ];
-  
+
   let total = state.data.map((elem,index) => elem.price).reduce((acc, cur) => acc + cur, 0);
 
   const { isLoading, hasError, data } = state;
@@ -104,14 +104,22 @@ export const BurgerConstructor = () => {
         >
           Оформить заказ
         </Button>
-        {/* <Modal>
-          
-        <OrderDetails handleClose={() => setShowModal(false)}>
-          034536
-        </OrderDetails>
-      </Modal> */}
 
-        {openModal &&<OrderDetails closeModal={setOpenModal}/> }
+        <Modal open={openModal} closeModal={() => setOpenModal(false)}>
+          <h1 className={orderDetailsStyle.orderDetailsTitle}>034536</h1>
+
+          <p className={orderDetailsStyle.orderDetailsIdentifier}>идентификатор заказа</p>
+
+          <div className={orderDetailsStyle.orderDetailsBody}>
+            <div className={orderDetailsStyle.orderDetailsDoneIcon}><CheckMarkIcon type="primary" /></div>
+
+            <p className={orderDetailsStyle.orderDetailsBodyText1}>Ваш заказ начали готовить</p>
+
+            <p className={orderDetailsStyle.orderDetailsBodyText2}>
+              Дождитесь готовности на орбитальной станции
+            </p>
+          </div>
+        </Modal>
       </div>
     </div>
   );

@@ -48,6 +48,7 @@ export const FillingCategory = () => {
               quantity={elem.price}
               description={elem.name}
               alt={elem.name}
+              ingredient={elem}
             />
           ))}
       </div>

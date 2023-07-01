@@ -51,6 +51,7 @@ export const BurgerCategory = () => {
                 description={elem.name}
                 alt={elem.name}
                 children={<Counter count={1} size="default" />}
+                ingredient={elem}
               />
             ) : (
               <BurgerIngredient
@@ -59,6 +60,7 @@ export const BurgerCategory = () => {
                 quantity={elem.price}
                 description={elem.name}
                 alt={elem.name}
+                ingredient={elem}
               />
             )
           )}
