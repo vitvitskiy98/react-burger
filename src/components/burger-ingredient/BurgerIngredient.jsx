@@ -4,6 +4,7 @@ import burgerIngredientStyle from "./burger-ingredient.module.css";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import Modal from "../modals/Modal";
 import ingredientDetails from "./ingredientDetails.module.css"
+import IngredientDetails from "./IngredientDetails";
 
 export const BurgerIngredient = ({
   image,
@@ -13,7 +14,8 @@ export const BurgerIngredient = ({
   alt,
   ingredient
 }) => {
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false);
+    console.log({...ingredient})
 
   return (
     <>
@@ -32,35 +34,7 @@ export const BurgerIngredient = ({
         <Modal open={showModal} closeModal={() => {
             setShowModal(false)
         }}>
-            <h1 className={ingredientDetails.ingredientDetailsTitle}>Детали ингредиента</h1>
-
-            <div className={ingredientDetails.ingredientDetailsBody}>
-                <img className={ingredientDetails.ingredientDetailsImg} src={image} alt={alt} />
-
-                <p className={ingredientDetails.ingredientDetailsDescription}>{description}</p>
-
-                <div className={ingredientDetails.ingredientDetailsNutrientsGrid}>
-                    <div className={ingredientDetails.ingredientDetailsNutrientsBlock}>
-                        <span>Калории,ккал</span>
-                        <span className={ingredientDetails.ingredientDetailsNutrientsBlockValue}>{ingredient.calories}</span>
-                    </div>
-
-                    <div className={ingredientDetails.ingredientDetailsNutrientsBlock}>
-                        <span>Белки, г</span>
-                        <span className={ingredientDetails.ingredientDetailsNutrientsBlockValue}>{ingredient.proteins}</span>
-                    </div>
-
-                    <div className={ingredientDetails.ingredientDetailsNutrientsBlock}>
-                        <span>Жиры, г</span>
-                        <span className={ingredientDetails.ingredientDetailsNutrientsBlockValue}>{ingredient.fat}</span>
-                    </div>
-
-                    <div className={ingredientDetails.ingredientDetailsNutrientsBlock}>
-                        <span>Углеводы, г</span>
-                        <span className={ingredientDetails.ingredientDetailsNutrientsBlockValue}>{ingredient.carbohydrates}</span>
-                    </div>
-                </div>
-            </div>
+            <IngredientDetails image = {image} alt={alt} description={description} ingredientObj={ingredient}/>
         </Modal>
     </>
   );

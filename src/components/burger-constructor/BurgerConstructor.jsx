@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import burgerConstructorStyle from "./burger-constructor.module.css";
-import orderDetailsStyle from "./orderDetails.module.css"
+// import orderDetailsStyle from "./orderDetails.module.css";
 import { BurgerConstructorIngredient } from "../burger-constructor-ingredient/BurgerConstructorIngredient";
 import Modal from "../modals/Modal";
 import {
@@ -8,6 +8,7 @@ import {
   CurrencyIcon,
   Button, CheckMarkIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
+import OrderDetails from "./OrderDetails";
 
 export const BurgerConstructor = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -106,19 +107,7 @@ export const BurgerConstructor = () => {
         </Button>
 
         <Modal open={openModal} closeModal={() => setOpenModal(false)}>
-          <h1 className={orderDetailsStyle.orderDetailsTitle}>034536</h1>
-
-          <p className={orderDetailsStyle.orderDetailsIdentifier}>идентификатор заказа</p>
-
-          <div className={orderDetailsStyle.orderDetailsBody}>
-            <div className={orderDetailsStyle.orderDetailsDoneIcon}><CheckMarkIcon type="primary" /></div>
-
-            <p className={orderDetailsStyle.orderDetailsBodyText1}>Ваш заказ начали готовить</p>
-
-            <p className={orderDetailsStyle.orderDetailsBodyText2}>
-              Дождитесь готовности на орбитальной станции
-            </p>
-          </div>
+          <OrderDetails/>
         </Modal>
       </div>
     </div>
