@@ -1,26 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-const ModalOverlay = ({ children, closeModal }) => {
-  useEffect(() => {
-      const onKeyPress = (e) => {
-          if(e.key === "Escape") {
-              closeModal()
-          }
-      }
-
-      document.addEventListener("keydown", onKeyPress)
-
-      return () => document.removeEventListener("keydown", onKeyPress)
-  }, [closeModal])
-
+const ModalOverlay = ({ closeModal }) => {
     return (
     <div className="modalBackground" onClick={closeModal}>
       <div onClick={e => {
         e.stopPropagation()
         e.nativeEvent.stopImmediatePropagation()
       }}>
-        {children}
       </div>
     </div>
   );

@@ -15,7 +15,6 @@ export const BurgerIngredient = ({
   ingredient
 }) => {
     const [showModal, setShowModal] = useState(false);
-    console.log({...ingredient})
 
   return (
     <>
@@ -40,11 +39,10 @@ export const BurgerIngredient = ({
   );
 };
 
-BurgerIngredient.propTypes = PropTypes.shape({
-  image: PropTypes.string,
-  quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  description: PropTypes.string,
+BurgerIngredient.propTypes = {
+  image: PropTypes.string.isRequired,
+  quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  description: PropTypes.string.isRequired,
   children: PropTypes.any,
-  alt: PropTypes.string,
-  key:PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-});
+  alt: PropTypes.string.isRequired,
+};

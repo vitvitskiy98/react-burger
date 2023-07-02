@@ -47,16 +47,6 @@ export const BurgerConstructor = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const selectedData = [
-  //   state.data[0],
-  //   state.data[8],
-  //   state.data[5],
-  //   state.data[11],
-  //   state.data[10],
-  //   state.data[10],
-  //   state.data[0],
-  // ];
-
   let total = state.data.map((elem,index) => elem.price).reduce((acc, cur) => acc + cur, 0);
 
   const { isLoading, hasError, data } = state;
