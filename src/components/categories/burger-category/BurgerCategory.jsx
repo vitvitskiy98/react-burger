@@ -4,35 +4,7 @@ import { Counter } from "@ya.praktikum/react-developer-burger-ui-components";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
 
-export const BurgerCategory = () => {
-  const [state, setState] = useState({
-    isLoading: false,
-    hasError: false,
-    data: [],
-  });
-
-  const getData = () => {
-    setState({ ...state, hasError: false, isLoading: true });
-    fetch("https://norma.nomoreparties.space/api/ingredients")
-      .then((res) => res.json())
-      .then((json) =>
-        setState({
-          loading: false,
-          status: "success",
-          data: json.data.filter((el) => el.type === "bun"),
-        })
-      )
-      .catch((e) => {
-        setState({ ...state, hasError: true, isLoading: false });
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const { isLoading, hasError, data } = state;
+export const BurgerCategory = ({isLoading, hasError, data}) => {
   return (
     <div className="burgerCategory">
       <Heading heading="Булки" />

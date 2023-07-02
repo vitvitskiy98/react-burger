@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import burgerConstructorStyle from "./burger-constructor.module.css";
 // import orderDetailsStyle from "./orderDetails.module.css";
 import { BurgerConstructorIngredient } from "../burger-constructor-ingredient/BurgerConstructorIngredient";
@@ -47,7 +47,7 @@ export const BurgerConstructor = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  let total = state.data.map((elem,index) => elem.price).reduce((acc, cur) => acc + cur, 0);
+  let total = useMemo(() => state.data.map((elem,index) => elem.price).reduce((acc, cur) => acc + cur, 0),[state.data]);
 
   const { isLoading, hasError, data } = state;
 

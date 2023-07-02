@@ -1,37 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import fillingCategoryStyle from "./filling-category.module.css";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
 
-export const FillingCategory = () => {
-  const [state, setState] = useState({
-    isLoading: false,
-    hasError: false,
-    data: [],
-  });
+export const FillingCategory = ({isLoading, hasError, data}) => {
 
-  const getData = () => {
-    setState({ ...state, hasError: false, isLoading: true });
-    fetch("https://norma.nomoreparties.space/api/ingredients")
-      .then((res) => res.json())
-      .then((json) =>
-        setState({
-          loading: false,
-          status: "success",
-          data: json.data.filter((el) => el.type === "main"),
-        })
-      )
-      .catch((e) => {
-        setState({ ...state, hasError: true, isLoading: false });
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const { isLoading, hasError, data } = state;
   return (
     <div className="burgerCategory">
       <Heading heading="Начинки" />

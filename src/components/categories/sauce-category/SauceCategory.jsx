@@ -4,35 +4,7 @@ import sauceCategoryStyle from "./sauce-category.module.css";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
 
-export const SauceCategory = () => {
-  const [state, setState] = useState({
-    isLoading: false,
-    hasError: false,
-    data: [],
-  });
-
-  const getData = () => {
-    setState({ ...state, hasError: false, isLoading: true });
-    fetch("https://norma.nomoreparties.space/api/ingredients")
-      .then((res) => res.json())
-      .then((json) =>
-        setState({
-          loading: false,
-          status: "success",
-          data: json.data.filter((el) => el.type === "sauce"),
-        })
-      )
-      .catch((e) => {
-        setState({ ...state, hasError: true, isLoading: false });
-      });
-  };
-  //  let filtered = state.data.filter((elem,index) => index < 3);
-  // console.log(state.data);
-  useEffect(() => {
-    getData();
-  }, []);
-
-   const {isLoading,hasError,data} = state;
+export const SauceCategory = ({isLoading, hasError, data}) => {
   return (
     <div className="burgerCategory">
       <Heading heading="Соусы" />
