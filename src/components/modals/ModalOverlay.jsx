@@ -13,9 +13,9 @@ const ModalOverlay = ({ closeModal }) => {
   );
 };
 
-ModalOverlay.propTypes = PropTypes.shape({
+ModalOverlay.propTypes = {
     closeModal: PropTypes.func,
     children: PropTypes.element,
-});
+};
 
 export default ModalOverlay;

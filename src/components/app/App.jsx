@@ -17,7 +17,8 @@ function App() {
       setState({ ...state, hasError: false, isLoading: true });
       fetch("https://norma.nomoreparties.space/api/ingredients")
         .then((res) => {
-          res.json();
+          return res.json();
+          // eslint-disable-next-line no-unreachable
           if (!res.ok) {
             throw new Error('Ответ сети был не ok.');
             }
@@ -40,17 +41,16 @@ function App() {
  
   useEffect(() => {
     getData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
-  
-  console.log(state.data.map((elem) => console.log(elem)))
   return (
     <div className={`${style.appContainer}`}>
       <AppHeader />
       <main className={style.main}>
         <BurgerIngredients isLoading={state.isLoading} hasError={state.hasError} data={state.data}/>
-        <BurgerConstructor />
+        <BurgerConstructor/>
       </main>
     </div>
   );

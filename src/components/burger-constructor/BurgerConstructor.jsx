@@ -6,7 +6,7 @@ import Modal from "../modals/Modal";
 import {
   DragIcon,
   CurrencyIcon,
-  Button, CheckMarkIcon,
+  Button
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from "./OrderDetails";
 
