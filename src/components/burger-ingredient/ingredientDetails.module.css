@@ -1,0 +1,68 @@
+.ingredientDetailsTitle {
+    color: var(--text-primary-light-standart-text, #F2F2F3);
+    /* desktop/display large */
+    font-size: 36px;
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 40px 0 0 40px;
+}
+
+.ingredientDetailsBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ingredientDetailsImg {
+    width: 480px;
+    height: 240px;
+    flex-shrink: 0;
+}
+
+.ingredientDetailsDescription {
+    color: var(--text-primary-light-standart-text, #F2F2F3);
+    text-align: center;
+    /* desktop/display small */
+    font-size: 24px;
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 16px 0 0 0;
+}
+
+.ingredientDetailsNutrientsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 520px;
+    column-gap: 20px;
+    margin: 32px 0 0 0;
+}
+
+.ingredientDetailsNutrientsBlock {
+    color: var(--text-dark-grey-secondary-text, #8585AD);
+    text-align: center;
+    /* desktop/text */
+    font-size: 16px;
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+
+    display: grid;
+    grid-auto-rows: 1fr 1fr;
+    row-gap: 8px;
+}
+
+.ingredientDetailsNutrientsBlockValue {
+    color: var(--text-dark-grey-secondary-text, #8585AD);
+    text-align: center;
+    /* desktop/digits small */
+    font-size: 28px;
+    font-family: Iceland;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}

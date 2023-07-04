@@ -9,7 +9,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   overflow-y: scroll;
-  max-height: 386px;
+  max-height: 580px;
 }
 
 .chosenIngredients::-webkit-scrollbar {
