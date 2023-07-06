@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import burgerConstructorStyle from "./burger-constructor.module.css";
 // import orderDetailsStyle from "./orderDetails.module.css";
 import { BurgerConstructorIngredient } from "../burger-constructor-ingredient/BurgerConstructorIngredient";
@@ -6,50 +6,36 @@ import Modal from "../modals/Modal";
 import {
   DragIcon,
   CurrencyIcon,
-  Button
+  Button,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from "./OrderDetails";
-
+import { dataContext } from "../services/dataContext";
 export const BurgerConstructor = () => {
+  const { ...dataState } = useContext(dataContext);
   const [openModal, setOpenModal] = useState(false);
-  const [state, setState] = useState({
-    isLoading: false,
-    hasError: false,
-    data: [],
-  });
 
-  const getData = () => {
-    setState({ ...state, hasError: false, isLoading: true });
-    fetch("https://norma.nomoreparties.space/api/ingredients")
-      .then((res) => res.json())
-      .then((json) =>
-        setState({
-          loading: false,
-          status: "success",
-          data: [
-            json.data[0],
-            json.data[8],
-            json.data[5],
-            json.data[11],
-            json.data[10],
-            json.data[10],
-            json.data[0],
-          ],
-        })
-      )
-      .catch((e) => {
-        setState({ ...state, hasError: true, isLoading: false });
-      });
-  };
+  const filteredData = useMemo(
+    () => [
+      dataState.data[0],
+      dataState.data[8],
+      dataState.data[5],
+      dataState.data[11],
+      dataState.data[10],
+      dataState.data[10],
+      dataState.data[0],
+    ],
+    [dataState]
+  );
 
-  useEffect(() => {
-    getData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  let total = useMemo(
+    () =>
+      filteredData
+        .map((elem, index) => elem?.price)
+        .reduce((acc, cur) => acc + cur, 0),
+    [filteredData]
+  );
 
-  let total = useMemo(() => state.data.map((elem,index) => elem.price).reduce((acc, cur) => acc + cur, 0),[state.data]);
-
-  const { isLoading, hasError, data } = state;
+  const { isLoading, hasError } = dataState;
 
   return (
     <div className={`${burgerConstructorStyle.block} mt-25`}>
@@ -59,23 +45,23 @@ export const BurgerConstructor = () => {
           {hasError && "Произошла ошибка"}
           {!isLoading &&
             !hasError &&
-            data.length &&
-            data.map((elem, index) =>
-              index === 0 || data[data.length - 1] ? (
+            filteredData.length &&
+            filteredData.map((elem, index) =>
+              index === 0 || filteredData[filteredData.length - 1] ? (
                 <BurgerConstructorIngredient
                   key={index}
-                  text={elem.name}
-                  price={elem.price}
-                  thumbnail={elem.image}
+                  text={elem?.name}
+                  price={elem?.price}
+                  thumbnail={elem?.image}
                 />
               ) : (
                 <BurgerConstructorIngredient
                   key={index}
-                  text={elem.name}
-                  price={elem.price}
-                  thumbnail={elem.image}
+                  text={elem?.name}
+                  price={elem?.price}
+                  thumbnail={elem?.image}
                 >
-                  <DragIcon type="primary"/>
+                  {<DragIcon type="primary" />}
                 </BurgerConstructorIngredient>
               )
             )}
@@ -91,13 +77,13 @@ export const BurgerConstructor = () => {
           type="primary"
           size="large"
           extraClass={`${burgerConstructorStyle.button}`}
-          onClick={() =>setOpenModal(true)}
+          onClick={() => setOpenModal(true)}
         >
           Оформить заказ
         </Button>
 
         <Modal open={openModal} closeModal={() => setOpenModal(false)}>
-          <OrderDetails/>
+          <OrderDetails />
         </Modal>
       </div>
     </div>

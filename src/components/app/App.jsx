@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import style from "./app.module.css";
 import "../../fonts/fonts.css";
 import { BurgerIngredients } from "../burger-ingrediens/BurgerIngredients";
 import { AppHeader } from "../app-header/AppHeader";
 import { BurgerConstructor } from "../burger-constructor/BurgerConstructor";
-
+import { dataContext } from "../services/dataContext";
 function App() {
   const [state, setState] = useState({
     isLoading: false,
@@ -20,8 +20,8 @@ function App() {
           return res.json();
           // eslint-disable-next-line no-unreachable
           if (!res.ok) {
-            throw new Error('Ответ сети был не ok.');
-            }
+            throw new Error("Ответ сети был не ok.");
+          }
         })
         .then((json) =>
           setState({
@@ -34,24 +34,26 @@ function App() {
           setState({ ...state, hasError: true, isLoading: false });
         });
     } catch (error) {
-      console.log('Возникла проблема с вашим fetch запросом: ', error.message);
+      console.log("Возникла проблема с вашим fetch запросом: ", error.message);
     }
-
   };
- 
+
   useEffect(() => {
     getData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const { isLoading, hasError, data } = state;
 
   return (
     <div className={`${style.appContainer}`}>
       <AppHeader />
-      <main className={style.main}>
-        <BurgerIngredients isLoading={state.isLoading} hasError={state.hasError} data={state.data}/>
-        <BurgerConstructor/>
-      </main>
+      <dataContext.Provider value={{ isLoading, hasError, data, setState }}>
+        <main className={style.main}>
+          <BurgerIngredients />
+          <BurgerConstructor />
+        </main>
+      </dataContext.Provider>
     </div>
   );
 }
