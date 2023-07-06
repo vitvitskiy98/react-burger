@@ -6,23 +6,22 @@ import Modal from "../modals/Modal";
 import {
   DragIcon,
   CurrencyIcon,
-  Button,
+  Button,ConstructorElement
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from "./OrderDetails";
 import { dataContext } from "../services/dataContext";
 export const BurgerConstructor = () => {
   const { ...dataState } = useContext(dataContext);
   const [openModal, setOpenModal] = useState(false);
+  const bun = dataState.data.filter((el) => el.type === "bun")[0];
 
   const filteredData = useMemo(
     () => [
-      dataState.data[0],
       dataState.data[8],
       dataState.data[5],
       dataState.data[11],
       dataState.data[10],
-      dataState.data[10],
-      dataState.data[0],
+      dataState.data[10]
     ],
     [dataState]
   );
@@ -31,8 +30,8 @@ export const BurgerConstructor = () => {
     () =>
       filteredData
         .map((elem, index) => elem?.price)
-        .reduce((acc, cur) => acc + cur, 0),
-    [filteredData]
+        .reduce((acc, cur) => acc + cur, (bun?.price) *2),
+    [filteredData, bun?.price]
   );
 
   const { isLoading, hasError } = dataState;
@@ -40,6 +39,14 @@ export const BurgerConstructor = () => {
   return (
     <div className={`${burgerConstructorStyle.block} mt-25`}>
       <div className={`${burgerConstructorStyle.ingredientsBlock}`}>
+      <ConstructorElement
+            type="top"
+            isLocked={bun?.isLocked}
+            text={`${bun?.name} (верх)`}
+            price={bun?.price}
+            thumbnail={bun?.image}
+          /> 
+          </div>
         <div className={`${burgerConstructorStyle.chosenIngredients}`}>
           {isLoading && "Загрузка..."}
           {hasError && "Произошла ошибка"}
@@ -47,25 +54,23 @@ export const BurgerConstructor = () => {
             !hasError &&
             filteredData.length &&
             filteredData.map((elem, index) =>
-              index === 0 || filteredData[filteredData.length - 1] ? (
                 <BurgerConstructorIngredient
                   key={index}
                   text={elem?.name}
                   price={elem?.price}
                   thumbnail={elem?.image}
+                  children={<DragIcon type="primary" />}
                 />
-              ) : (
-                <BurgerConstructorIngredient
-                  key={index}
-                  text={elem?.name}
-                  price={elem?.price}
-                  thumbnail={elem?.image}
-                >
-                  {<DragIcon type="primary" />}
-                </BurgerConstructorIngredient>
-              )
             )}
         </div>
+        <div className={`${burgerConstructorStyle.ingredientsBlock}`}>
+        <ConstructorElement
+            type="top"
+            isLocked={bun?.isLocked}
+            text={`${bun?.name} (низ)`}
+            price={bun?.price}
+            thumbnail={bun?.image}
+          /> 
       </div>
       <div className={`${burgerConstructorStyle.totalBlock} mt-10`}>
         <div className={`${burgerConstructorStyle.total}`}>

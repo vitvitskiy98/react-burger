@@ -2,19 +2,24 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 import burgerConstructorIngredientStyles from "./burger-constructor-ingredient.module.css";
-export const BurgerConstructorIngredient = (props) => {
+export const BurgerConstructorIngredient = ({
+  children,
+  type,
+  isLocked,
+  text,
+  price,
+  thumbnail,
+}) => {
   return (
     <div className={`${burgerConstructorIngredientStyles.block}`}>
-      {props.children}
-      <div
-        className={`${burgerConstructorIngredientStyles.burgerConstStyle} mt-4 ml-9`}
-      >
+      {children}
+      <div className={`${burgerConstructorIngredientStyles.burgerConstStyle}`}>
         <ConstructorElement
-          type={props.type}
-          isLocked={props.isLocked}
-          text={props.text}
-          price={props.price}
-          thumbnail={props.thumbnail}
+          type={type}
+          isLocked={isLocked}
+          text={text}
+          price={price}
+          thumbnail={thumbnail}
         />
       </div>
     </div>
@@ -22,10 +27,10 @@ export const BurgerConstructorIngredient = (props) => {
 };
 
 BurgerConstructorIngredient.propTypes = {
+  children: PropTypes.any,
   type: PropTypes.string,
   isLocked: PropTypes.bool,
   text: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   thumbnail: PropTypes.string,
-  children: PropTypes.any,
 };
