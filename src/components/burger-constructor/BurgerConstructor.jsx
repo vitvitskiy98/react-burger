@@ -81,7 +81,6 @@ export const BurgerConstructor = () => {
     }
   };
 
-
   return (
     <div className={`${burgerConstructorStyle.block} mt-25`}>
       <div className={`${burgerConstructorStyle.ingredientsBlock}`}>
@@ -120,8 +119,10 @@ export const BurgerConstructor = () => {
       </div>
       <div className={`${burgerConstructorStyle.totalBlock} mt-10`}>
         <div className={`${burgerConstructorStyle.total}`}>
+          <>
           <h1 className={`${burgerConstructorStyle.totalHeading}`}>{total}</h1>
           <CurrencyIcon type="primary" />
+          </>
         </div>
         <Button
           htmlType="button"
