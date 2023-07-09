@@ -24,7 +24,7 @@ export const BurgerConstructor = () => {
     hasError: false,
     orders: [],
   });
-  const { ...dataState } = useContext(DataContext);
+  const dataState = useContext(DataContext);
   const [openModal, setOpenModal] = useState(false);
   const bun = dataState.data.filter((el) => el.type === "bun")[0];
 
@@ -48,11 +48,10 @@ export const BurgerConstructor = () => {
   );
 
   const { isLoading, hasError } = dataState;
-   
-  const ingredients = useMemo( () => filteredData.map(elem => elem?._id),[filteredData]);
-  console.log(ingredients)
-  const fetchPostData = useCallback(() => {
- 
+
+  const ingredients = filteredData.map((elem) => elem?._id);
+
+  const fetchPostData = () => {
     setState({ ...state, hasError: false, isLoading: true });
     try {
       fetch("https://norma.nomoreparties.space/api/orders", {
@@ -81,15 +80,14 @@ export const BurgerConstructor = () => {
         });
     } catch (error) {
       console.log("Возникла проблема с вашим fetch запросом: ", error.message);
-    } 
-  }, [state,ingredients]);
+    }
+  };
 
-  useEffect(() => {
-    fetchPostData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
- 
-  
+  // useEffect(() => {
+  //   fetchPostData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   return (
     <div className={`${burgerConstructorStyle.block} mt-25`}>
       <div className={`${burgerConstructorStyle.ingredientsBlock}`}>
@@ -136,7 +134,7 @@ export const BurgerConstructor = () => {
           type="primary"
           size="large"
           extraClass={`${burgerConstructorStyle.button}`}
-          onClick={() => setOpenModal(true)}
+          onClick={() => {fetchPostData(); setOpenModal(true)}}
         >
           Оформить заказ
         </Button>
