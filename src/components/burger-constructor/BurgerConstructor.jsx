@@ -62,10 +62,10 @@ export const BurgerConstructor = () => {
         body: JSON.stringify({ ingredients }),
       })
         .then((res) => {
-          return res.json();
-          // eslint-disable-next-line no-unreachable
-          if (!res.ok) {
-            throw new Error("Ответ сети был не ok.");
+          if (res.status === 200) {
+            return res.json();
+          } else {
+            return Promise.reject('response status is not 200!');
           }
         })
         .then((json) =>
@@ -83,10 +83,6 @@ export const BurgerConstructor = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchPostData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
     <div className={`${burgerConstructorStyle.block} mt-25`}>
