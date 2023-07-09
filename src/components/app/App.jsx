@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import style from "./app.module.css";
 import "../../fonts/fonts.css";
 import { BurgerIngredients } from "../burger-ingrediens/BurgerIngredients";
 import { AppHeader } from "../app-header/AppHeader";
 import { BurgerConstructor } from "../burger-constructor/BurgerConstructor";
-import { dataContext } from "../services/dataContext";
+import { DataContext } from "../services/DataContext";
 function App() {
   const [state, setState] = useState({
     isLoading: false,
@@ -45,15 +45,20 @@ function App() {
 
   const { isLoading, hasError, data } = state;
 
+  const contextValue = useMemo(
+    () => ({ isLoading, hasError, data, setState }),
+    [isLoading, hasError, data, setState]
+  );
+  
   return (
     <div className={`${style.appContainer}`}>
       <AppHeader />
-      <dataContext.Provider value={{ isLoading, hasError, data, setState }}>
+      <DataContext.Provider value={contextValue}>
         <main className={style.main}>
           <BurgerIngredients />
           <BurgerConstructor />
         </main>
-      </dataContext.Provider>
+      </DataContext.Provider>
     </div>
   );
 }

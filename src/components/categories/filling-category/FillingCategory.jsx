@@ -3,9 +3,9 @@ import React, { useContext } from "react";
 import fillingCategoryStyle from "./filling-category.module.css";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
-import { dataContext } from "../../services/dataContext";
+import { DataContext } from "../../services/DataContext";
 export const FillingCategory = () => {
-  const { ...dataState } = useContext(dataContext);
+  const { ...dataState } = useContext(DataContext);
   const { isLoading, hasError, data } = dataState;
   const filteredFillingData = data.filter((el) => el.type === "main");
   return (

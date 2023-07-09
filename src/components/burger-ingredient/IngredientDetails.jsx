@@ -1,6 +1,6 @@
 import React from "react";
 import ingredientDetails from "./ingredientDetails.module.css";
-
+import PropTypes from "prop-types";
 export default function IngredientDetails({
   image,
   alt,
@@ -65,3 +65,10 @@ export default function IngredientDetails({
     </>
   );
 }
+
+IngredientDetails.propTypes = {
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  ingredientObj: PropTypes.object.isRequired
+};

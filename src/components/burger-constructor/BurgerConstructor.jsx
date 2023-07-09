@@ -17,14 +17,14 @@ import {
   ConstructorElement,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from "./OrderDetails";
-import { dataContext } from "../services/dataContext";
+import { DataContext } from "../services/DataContext";
 export const BurgerConstructor = () => {
   const [state, setState] = useState({
     isLoading: false,
     hasError: false,
     orders: [],
   });
-  const { ...dataState } = useContext(dataContext);
+  const { ...dataState } = useContext(DataContext);
   const [openModal, setOpenModal] = useState(false);
   const bun = dataState.data.filter((el) => el.type === "bun")[0];
 

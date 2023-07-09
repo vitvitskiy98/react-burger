@@ -3,9 +3,9 @@ import React, { useContext } from "react";
 import sauceCategoryStyle from "./sauce-category.module.css";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
-import { dataContext } from "../../services/dataContext";
+import { DataContext } from "../../services/DataContext";
 export const SauceCategory = () => {
-  const { ...dataState } = useContext(dataContext);
+  const { ...dataState } = useContext(DataContext);
   const { isLoading, hasError, data } = dataState;
   const filteredSauseData = data.filter((el) => el.type === "sauce");
   return (

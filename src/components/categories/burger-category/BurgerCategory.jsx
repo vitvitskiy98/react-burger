@@ -3,9 +3,9 @@ import burgerCategoryStyle from "./burger-category.module.css";
 import { Counter } from "@ya.praktikum/react-developer-burger-ui-components";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
-import { dataContext } from "../../services/dataContext";
+import { DataContext } from "../../services/DataContext";
 export const BurgerCategory = () => {
-  const { ...dataState } = useContext(dataContext);
+  const { ...dataState } = useContext(DataContext);
   const { isLoading, hasError, data } = dataState;
   const filteredBurgerData = data.filter((el) => el.type === "bun");
   return (
