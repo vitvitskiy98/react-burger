@@ -42,6 +42,6 @@ BurgerIngredient.propTypes = {
   image: PropTypes.string.isRequired,
   quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   description: PropTypes.string.isRequired,
-  children: PropTypes.any,
+  children: PropTypes.any.isRequired,
   alt: PropTypes.string.isRequired,
 };

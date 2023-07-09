@@ -48,15 +48,11 @@ export const BurgerConstructor = () => {
   );
 
   const { isLoading, hasError } = dataState;
-
+   
+  const ingredients = useMemo( () => filteredData.map(elem => elem?._id),[filteredData]);
+  console.log(ingredients)
   const fetchPostData = useCallback(() => {
-    const ingredients = [
-      "643d69a5c3f7b9001cfa0944",
-      "643d69a5c3f7b9001cfa093f",
-      "643d69a5c3f7b9001cfa0947",
-      "643d69a5c3f7b9001cfa0946",
-      "643d69a5c3f7b9001cfa0946",
-    ];
+ 
     setState({ ...state, hasError: false, isLoading: true });
     try {
       fetch("https://norma.nomoreparties.space/api/orders", {
@@ -85,14 +81,15 @@ export const BurgerConstructor = () => {
         });
     } catch (error) {
       console.log("Возникла проблема с вашим fetch запросом: ", error.message);
-    }
-  }, [state]);
+    } 
+  }, [state,ingredients]);
 
   useEffect(() => {
     fetchPostData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
  
+  
   return (
     <div className={`${burgerConstructorStyle.block} mt-25`}>
       <div className={`${burgerConstructorStyle.ingredientsBlock}`}>

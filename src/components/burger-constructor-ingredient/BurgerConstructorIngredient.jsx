@@ -27,10 +27,10 @@ export const BurgerConstructorIngredient = ({
 };
 
 BurgerConstructorIngredient.propTypes = {
-  children: PropTypes.any,
-  type: PropTypes.string,
-  isLocked: PropTypes.bool,
-  text: PropTypes.string,
-  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  thumbnail: PropTypes.string,
+  children: PropTypes.any?.isRequired,
+  type: PropTypes.string?.isRequired,
+  isLocked: PropTypes.bool?.isRequired,
+  text: PropTypes.string?.isRequired,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  thumbnail: PropTypes.string.isRequired,
 };
