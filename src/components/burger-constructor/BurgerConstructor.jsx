@@ -1,9 +1,7 @@
 import React, {
   useState,
-  useEffect,
   useMemo,
   useContext,
-  useCallback,
 } from "react";
 import burgerConstructorStyle from "./burger-constructor.module.css";
 // import orderDetailsStyle from "./orderDetails.module.css";
@@ -107,7 +105,7 @@ export const BurgerConstructor = () => {
               text={elem?.name}
               price={elem?.price}
               thumbnail={elem?.image}
-              children={<DragIcon type="primary" />}
+              children={<DragIcon type="primary"/>}
             />
           ))}
       </div>
