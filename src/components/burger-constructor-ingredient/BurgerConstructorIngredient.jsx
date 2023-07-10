@@ -30,7 +30,7 @@ BurgerConstructorIngredient.propTypes = {
   children: PropTypes.any?.isRequired,
   type: PropTypes.string,
   isLocked: PropTypes.bool,
-  text: PropTypes.string?.isRequired,
-  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string])?.isRequired,
-  thumbnail: PropTypes.string?.isRequired,
+  text: PropTypes.string,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  thumbnail: PropTypes.string,
 };
