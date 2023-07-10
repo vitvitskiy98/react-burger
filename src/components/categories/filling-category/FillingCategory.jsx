@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
+import React, { useContext } from "react";
 import fillingCategoryStyle from "./filling-category.module.css";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
-
-export const FillingCategory = ({isLoading, hasError, data}) => {
-
+import { DataContext } from "../../services/DataContext";
+export const FillingCategory = () => {
+  const { ...dataState } = useContext(DataContext);
+  const { isLoading, hasError, data } = dataState;
+  const filteredFillingData = data.filter((el) => el.type === "main");
   return (
     <div className="burgerCategory">
       <Heading heading="Начинки" />
@@ -14,8 +16,8 @@ export const FillingCategory = ({isLoading, hasError, data}) => {
         {hasError && "Произошла ошибка"}
         {!isLoading &&
           !hasError &&
-          data.length &&
-          data.map((elem, index) => (
+          filteredFillingData.length &&
+          filteredFillingData.map((elem, index) => (
             <BurgerIngredient
               key={elem._id}
               image={elem.image}

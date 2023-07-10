@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import burgerIngredientStyle from "./burger-ingredient.module.css";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import Modal from "../modals/Modal";
-import ingredientDetails from "./ingredientDetails.module.css"
 import IngredientDetails from "./IngredientDetails";
 
 export const BurgerIngredient = ({

@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import burgerCategoryStyle from "./burger-category.module.css";
 import { Counter } from "@ya.praktikum/react-developer-burger-ui-components";
 import { Heading } from "../../heading/Heading";
 import { BurgerIngredient } from "../../burger-ingredient/BurgerIngredient";
-
-export const BurgerCategory = ({isLoading, hasError, data}) => {
+import { DataContext } from "../../services/DataContext";
+export const BurgerCategory = () => {
+  const { ...dataState } = useContext(DataContext);
+  const { isLoading, hasError, data } = dataState;
+  const filteredBurgerData = data.filter((el) => el.type === "bun");
   return (
     <div className="burgerCategory">
       <Heading heading="Булки" />
@@ -13,8 +16,8 @@ export const BurgerCategory = ({isLoading, hasError, data}) => {
         {hasError && "Произошла ошибка"}
         {!isLoading &&
           !hasError &&
-          data.length &&
-          data.map((elem, index) =>
+          filteredBurgerData.length &&
+          filteredBurgerData.map((elem, index) =>
             index === 0 ? (
               <BurgerIngredient
                 key={elem._id}
